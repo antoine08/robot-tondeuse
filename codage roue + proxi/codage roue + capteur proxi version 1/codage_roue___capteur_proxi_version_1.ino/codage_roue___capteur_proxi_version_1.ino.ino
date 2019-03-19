@@ -7,22 +7,22 @@
  ***************************************************************************/
 //Define Pins ultrasonic****************************************************
  
-int trigPin = 12;    // Trigger
-int echoPin = 11;    // Echo
+int trigPin = 24;    // Trigger
+int echoPin = 25;    // Echo
 long duration, cm;
 
 //Define Pins motors********************************************************
 
 //Motor A (left)
 
-int enableA = 5;
-int MotorA1 = 6;
-int MotorA2 = 7;
+int enableA = 3;
+int MotorA1 = 29;
+int MotorA2 = 28;
  
 //Motor B (right)
-int enableB = 8;
-int MotorB1 = 9;
-int MotorB2 = 10;
+int enableB = 2;
+int MotorB1 = 27;
+int MotorB2 = 26;
 
 /***************************************************************************
  * the setup () initialization function which is executed once at startup.*
@@ -51,8 +51,8 @@ void setup() {
   pinMode (MotorB2, OUTPUT);  
   
   
-  Stop();
-  delay(1);
+Stop();
+delay(5000);
 }
 
 
@@ -70,14 +70,20 @@ void loop() {
   
 //if else condition to avoid obstacles***************************
   
-  if (cm <= 20 )
+  if (cm <= 50 )
 {
   Stop();
   delay(2000);
   Marche_arriere();
-  delay(2000);
+  delay(750);
   Demi_tour();
-  delay(1000);
+  delay(750);
+  Stop();
+  delay(750);
+  Marche_avant();
+  delay(600);
+  Stop();
+  delay(650);
   
 }
 else
@@ -134,7 +140,7 @@ void Marche_avant()
  
   // Set speed to 200 out of possible range 0~255
  
-  analogWrite(enableA, 200);
+  analogWrite(enableA, 160);
  
   // Turn on motor B
  
@@ -143,7 +149,7 @@ void Marche_avant()
  
   // Set speed to 200 out of possible range 0~255
  
-  analogWrite(enableB, 200);  
+  analogWrite(enableB, 120);  
 }
 
 /****************************
@@ -171,7 +177,7 @@ void Marche_arriere()
  
   // Set speed to 200 out of possible range 0~255
  
-  analogWrite(enableB, 150);  
+  analogWrite(enableB, 120);  
 }
 
 
@@ -191,7 +197,7 @@ void Demi_tour()
  
   // Set speed to 200 out of possible range 0~255
  
-  analogWrite(enableA, 150);
+  analogWrite(enableA, 125);
  
   // Turn on motor B
  
@@ -200,7 +206,7 @@ void Demi_tour()
  
   // Set speed to 200 out of possible range 0~255
  
-  analogWrite(enableB, 150);  
+  analogWrite(enableB, 100);  
 }
 
 
@@ -222,4 +228,3 @@ void Stop()
   digitalWrite(MotorB1, LOW);
   digitalWrite(MotorB2, LOW);
 }
-
