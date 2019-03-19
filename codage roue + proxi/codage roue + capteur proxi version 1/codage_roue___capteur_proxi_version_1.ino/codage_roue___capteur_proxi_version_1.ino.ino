@@ -7,8 +7,8 @@
  ***************************************************************************/
 //Define Pins ultrasonic****************************************************
  
-int trigPin = 24;    // Trigger
-int echoPin = 25;    // Echo
+int trigPin = 9;    // Trigger
+int echoPin = 8;    // Echo
 long duration, cm;
 
 //Define Pins motors********************************************************
