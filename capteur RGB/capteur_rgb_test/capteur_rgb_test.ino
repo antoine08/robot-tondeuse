@@ -1,12 +1,14 @@
 int s0=3,s1=4,s2=5,s3=6;
 int out=2;
-int led=13;
+int led=23;
 int flag=0;
+int motor_coupe =22;
 byte counter=0;
 byte countR=0,countG=0,countB=0;
 void setup()
  {
- Serial.begin(115200);
+ Serial.begin(9600);
+  pinMode(motor_coupe, OUTPUT);
  pinMode(s0,OUTPUT);
  pinMode(s1,OUTPUT); 
  pinMode(s2,OUTPUT);
@@ -49,6 +51,14 @@ void ISR_INTO()
     Serial.println(countR,DEC);
     digitalWrite(s2,HIGH);
     digitalWrite(s3,HIGH);
+
+    if (countR>100){
+      digitalWrite(motor_coupe,LOW);
+     
+    }else{
+      digitalWrite(motor_coupe,HIGH);
+      }
+   
   }
   else if(flag==2)
    {
@@ -57,6 +67,7 @@ void ISR_INTO()
     Serial.println(countG,DEC);
     digitalWrite(s2,LOW);
     digitalWrite(s3,HIGH);
+ 
    }
    else if(flag==3)
     {
@@ -66,6 +77,7 @@ void ISR_INTO()
     Serial.println("\n"); 
     digitalWrite(s2,LOW);
     digitalWrite(s3,LOW);
+    
    
     }
     else if(flag==4)
@@ -76,7 +88,14 @@ void ISR_INTO()
 }
 void loop()
  {
-  digitalWrite(led,LOW);
+
   TCS();
+  
+ digitalWrite(led,LOW);
 while(1);
  }
+
+
+
+
+ 
