@@ -15,6 +15,7 @@ void setup()
  pinMode(s3,OUTPUT);
  pinMode(out,INPUT);
  pinMode(led,OUTPUT);
+  TCS();
 
  }
 void TCS()
@@ -52,7 +53,7 @@ void ISR_INTO()
     digitalWrite(s2,HIGH);
     digitalWrite(s3,HIGH);
 
-    if (countR>100){
+    if (countR>150){
       digitalWrite(motor_coupe,LOW);
      
     }else{
@@ -89,10 +90,6 @@ void ISR_INTO()
 void loop()
  {
 
-  TCS();
-  
- digitalWrite(led,LOW);
-while(1);
  }
 
 
