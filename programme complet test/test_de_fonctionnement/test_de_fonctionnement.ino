@@ -1,4 +1,7 @@
-  
+// Define Pins LEDS
+int led_green = 50;
+int led_red = 51;
+
 //Define Pins ultrasonic****************************************************
  
 int trigPin = 25;    // Trigger
@@ -39,7 +42,10 @@ void setup() {
   Serial.begin (9600);
   
 //Define inputs and outputs*************************************************
-   
+  // Leds
+    pinMode(led_green, OUTPUT);
+    pinMode(led_red, OUTPUT);
+    
   // ultrasonic 
     pinMode(trigPin, OUTPUT);
     pinMode(echoPin, INPUT);
@@ -76,6 +82,9 @@ delay(5000);
 
 
 void loop() {
+ 
+
+// call ultrasonic
   cm = calcul_distance();
   Serial.print(cm);
   Serial.println("cm");
@@ -164,6 +173,11 @@ void Marche_avant()
   // Set speed to 200 out of possible range 0~255
  
   analogWrite(enableB, 120);  
+
+  //activation led green
+
+   digitalWrite (led_red, LOW);
+   digitalWrite (led_green, HIGH);
 }
 
 /****************************
@@ -192,6 +206,13 @@ void Marche_arriere()
   // Set speed to 200 out of possible range 0~255
  
   analogWrite(enableB, 120);  
+
+  // activation led_red
+
+  digitalWrite (led_red, HIGH);
+  delay(100);
+  digitalWrite (led_red, LOW);
+  delay(100);
 }
 
 
@@ -221,6 +242,13 @@ void Demi_tour()
   // Set speed to 200 out of possible range 0~255
  
   analogWrite(enableB, 100);  
+
+  //activation led green
+
+   digitalWrite (led_green, HIGH);
+  delay(100);
+  digitalWrite (led_green, LOW);
+  delay(100);
 }
 
 
@@ -241,6 +269,11 @@ void Stop()
  
   digitalWrite(MotorB1, LOW);
   digitalWrite(MotorB2, LOW);
+
+  //activation led red
+
+   digitalWrite (led_red, HIGH);
+   digitalWrite (led_green, LOW);
 }
 
 /* ***************************************************************
