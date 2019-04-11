@@ -2,6 +2,10 @@
 int led_green = 50;
 int led_red = 51;
 
+// Define MOTOR CUT
+
+int motor_cut = 22;
+
 //Define Pins ultrasonic****************************************************
  
 int trigPin = 25;    // Trigger
@@ -45,6 +49,10 @@ void setup() {
   // Leds
     pinMode(led_green, OUTPUT);
     pinMode(led_red, OUTPUT);
+
+  // motor_cut
+
+    pinMode(motor_cut, OUTPUT);
     
   // ultrasonic 
     pinMode(trigPin, OUTPUT);
@@ -111,6 +119,7 @@ void loop() {
 else
 {
   Marche_avant();
+  digitalWrite(motor_cut,HIGH);
 }
  
 
