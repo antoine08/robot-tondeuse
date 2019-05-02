@@ -1,6 +1,7 @@
 // Define Pins LEDS
-int led_green = 50;
-int led_red = 51;
+int led_green = 31;
+int led_red = 30;
+
 
 // Define MOTOR CUT
 
@@ -49,9 +50,9 @@ void setup() {
   // Leds
     pinMode(led_green, OUTPUT);
     pinMode(led_red, OUTPUT);
-
+ 
+    
   // motor_cut
-
     pinMode(motor_cut, OUTPUT);
     
   // ultrasonic 
@@ -99,8 +100,8 @@ void loop() {
   
   
 //if else condition to avoid obstacles***************************
-  
-  if (cm <= 50 || countR>150)
+   
+  if (cm <= 30 || countR>125)
 {
   Stop();
   delay(2000);
@@ -116,13 +117,12 @@ void loop() {
   delay(650);
   
 }
-else
+else 
 {
   Marche_avant();
   digitalWrite(motor_cut,HIGH);
 }
  
-
   delay(250);
    
 }
