@@ -1,0 +1,12 @@
+from picamera.array import PiRGBArray
+from picamera import PiCamera
+from time import sleep
+
+camera = PiCamera()
+camera.resolution = (960,640)
+camera.framerate = 10
+while(1):
+    camera.start_preview()
+    sleep(5)
+    camera.capture('/home/pi/test.png')
+    camera.stop_preview()
