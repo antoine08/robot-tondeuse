@@ -1,0 +1,17 @@
+import cv2
+import numpy as np
+
+img = cv2.imread('rouge.png')
+height, width = img.shape[:2]
+# Change these values to fit the size of your region of interest
+roi_size = 10 # (10x10)
+print((height-roi_size)/2,(height+roi_size)/2,(width-roi_size)/2,(width+roi_size)/2)
+roi_values = img[int((height-roi_size)/2):int((height+roi_size)/2),int((width-roi_size)/2):i$
+mean_blue = np.mean(roi_values[:,:,0])
+mean_green = np.mean(roi_values[:,:,1])
+mean_red = np.mean(roi_values[:,:,2])
+
+print("B:",mean_blue,  "G:",mean_green, " R:",mean_red)
+
+rgb= [mean_blue,mean_green,mean_red]
+print(rgb.index(max(rgb)))
