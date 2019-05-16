@@ -23,7 +23,7 @@ Lancer le programme la première fois avec un écran et une souris.
 
 Une fois fait débrancher de l'écran le raspberry et le programme tourne en boucle.
 
-Le robot est pret et peut etre lancer sur le gazon. 
+Le robot est pret et peut etre lancé sur le gazon. 
 
 
 Bon divertissement ! 
